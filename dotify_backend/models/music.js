@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      Music.hasMany(models.LikeMusic, { foreignKey: 'musicId' })
       // define association here
     }
   }
@@ -15,12 +16,15 @@ module.exports = (sequelize, DataTypes) => {
     {
       artists_name: DataTypes.STRING,
       genre: DataTypes.ARRAY,
-      music_file: DataTypes.BLOB
+      music_file: {
+        type: BLOB,
+        allowNull: false
+      }
     },
     {
       sequelize,
       modelName: 'Music',
-      tableName: 'musics'
+      tableName: 'music'
     }
   )
   return Music
