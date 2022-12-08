@@ -33,9 +33,11 @@ For now these are the expected technology I will use.
 We used this diagram as a reference to understand user experience and how the database would connect/flow.
 Feel free to modify this and make your own.
 
-[Hierarchy & ERD](https://lucid.app/lucidchart/b24131d0-e5ea-44fd-9942-bcbcc9305a70/edit?beaconFlowId=EB21F93B55BEAE44&invitationId=inv_bb135fe6-5ed3-4b21-9802-d3619f1585c2&page=0_0#)
+![Hierarchy & ERD](images/Screen Shot 2022-12-08 at 8.26.20 AM.png)
 
-Here is a link to the [Trello Board](https://trello.com/b/Z42jcobv/youbuycom-project). This is what I used to plan out how I will build this application.
+[Hierarchy & ERD](https://lucid.app/lucidchart/633e4ccb-ac2c-406e-b8b0-5c689a99b561/edit?beaconFlowId=ACE688B68C8B05D8&invitationId=inv_f887054e-6b1d-4ec8-ba9e-d346e1411f18&page=0_0#)
+
+Here is a link to the [Trello Board](https://trello.com/invite/b/mKGbJMBE/ATTI6142ff4de250acc3d83cc2b3012d32d891723CD3/dotify-project). This is what I used to plan out how I will build this application.
 
 ### **_Getting Started_**
 
