@@ -8,12 +8,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      LikedMusic.belongsTo(models.User, { foreignKey: 'userId' })
+      LikedMusic.belongsTo(models.Music, { as: 'songs', foreignKey: 'musicId' })
     }
   }
   LikedMusic.init(
     {
-      liked: DataTypes.BOOLEAN,
       musicId: DataTypes.INTEGER,
       userId: DataTypes.INTEGER
     },

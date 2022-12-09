@@ -9,9 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      liked: {
-        type: Sequelize.BOOLEAN
-      },
       musicId: {
         type: Sequelize.INTEGER
       },

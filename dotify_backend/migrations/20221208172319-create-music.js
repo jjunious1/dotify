@@ -13,10 +13,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       genre: {
-        type: Sequelize.ARRAY
+        type: Sequelize.ARRAY(Sequelize.STRING)
       },
       music_file: {
-        type: Sequelize.BLOB
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

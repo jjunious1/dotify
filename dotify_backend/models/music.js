@@ -8,18 +8,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Music.hasMany(models.LikeMusic, { foreignKey: 'musicId' })
+      Music.hasMany(models.LikedMusic, { foreignKey: 'musicId', as: 'songs' })
       // define association here
     }
   }
   Music.init(
     {
       artists_name: DataTypes.STRING,
-      genre: DataTypes.ARRAY,
-      music_file: {
-        type: BLOB,
-        allowNull: false
-      }
+      genre: DataTypes.ARRAY(DataTypes.STRING),
+      music_file: DataTypes.STRING
     },
     {
       sequelize,

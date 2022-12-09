@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const AuthRouter = require('./routes/AuthRouter')
+const UserRouter = require('./routes/UserRouter')
 
 const app = express()
 
@@ -13,5 +14,6 @@ app.use(express.urlencoded({ extended: true }))
 
 //routes
 app.use('/auth', AuthRouter)
+app.use('/users', UserRouter)
 
 app.listen(PORT, () => console.log(`Sever Running On Port: ${PORT}`))
