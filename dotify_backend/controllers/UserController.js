@@ -1,4 +1,4 @@
-const { User } = require('../models/user')
+const { User } = require('../models')
 
 const GetUsers = async (req, res) => {
   try {
@@ -11,8 +11,11 @@ const GetUsers = async (req, res) => {
 
 const DeleteUser = async (req, res) => {
   try {
-    const user = await User.findById(req.body.id)
-    await user.destroy()
+    await User.destroy({
+      where: {
+        dotifyId: req.body.dotifyId
+      }
+    })
     res.send({ msg: 'User was successfully deleted' })
   } catch (error) {
     throw error
