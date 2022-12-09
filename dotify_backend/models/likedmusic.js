@@ -11,15 +11,19 @@ module.exports = (sequelize, DataTypes) => {
   }
   LikedMusic.init(
     {
-      musicId: DataTypes.INTEGER,
-      references: {
-        model: 'music',
-        key: 'id'
+      musicId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'music',
+          key: 'id'
+        }
       },
-      userId: DataTypes.INTEGER,
-      references: {
-        model: 'users',
-        key: 'id'
+      userId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       }
     },
     {

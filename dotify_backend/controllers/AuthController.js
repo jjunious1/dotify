@@ -38,7 +38,7 @@ const Register = async (req, res) => {
 const updatePassword = async (req, res) => {
   try {
     const user = await User.findOne({
-      where: { email: req.body.email },
+      where: { dotifyId: req.body.dotifyId },
       raw: true
     })
     const { password } = req.body
