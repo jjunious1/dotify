@@ -1,38 +1,5 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-XFAvc5RkigY%2FULS7oOK01yI%2FAAAAAAAAN2U%2Fwq-RQ-_DY1A%2Fs1600%2F3D%2BPurple%2BWallpapers%2B5.jpg&f=1&nofb=1&ipt=bc3d328116790375f27a4b6acbac201f1674e52aba9c8b54e2811a5031fd9bc6&ipo=images) no-repeat center center fixed;
+  background-size: cover ;
+  width: 100%
 }
