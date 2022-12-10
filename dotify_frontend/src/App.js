@@ -1,6 +1,8 @@
 import './App.css'
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Nav from './components/Nav'
 import { CheckSession } from './services/Auth'
 
 function App() {
@@ -30,7 +32,20 @@ function App() {
     }
   }, [])
 
-  return <div></div>
+  return (
+    <div>
+      <Nav
+        authenticated={authenticated}
+        user={user}
+        handleLogOut={handleLogOut}
+      />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </main>
+    </div>
+  )
 }
 
 export default App
