@@ -6,13 +6,18 @@ router.get(
   '/',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.GetSongs
+  controller.GetMySongs
 )
-router.post(
+router.post('/', controller.GetMusic)
+
+router.delete(
   '/',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.likedMusic
+  controller.removeSong
 )
+
+//used only on backend
+router.get('/songs', controller.GetSongs)
 
 module.exports = router
