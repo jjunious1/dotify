@@ -8,23 +8,18 @@ import { BASE_URL } from '../services/api'
 
 const Music = ({ authenticated, user, handleLogout }) => {
   const [myPlaylist, setMyPlaylist] = useState([])
-  const [songs, setSongs] = useState([])
   let { id } = useParams()
 
   useEffect(() => {
     const getMySongs = async () => {
       const response = await Client.get(`${BASE_URL}userpage/${id}`)
-      console.log(response.data.songs.data)
+      setMyPlaylist(response.data[0].songs)
     }
     getMySongs()
-    const getAllSongs = async () => {
-      const response = await Client.get(`${BASE_URL}userpage`)
-      console.log(response)
-    }
   }, [])
   return (
     <div>
-      <Browse />
+      {/* <Browse /> */}
       <PlayerApp />
     </div>
   )
