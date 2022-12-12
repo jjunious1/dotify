@@ -7,7 +7,8 @@ import { useEffect } from 'react'
 //referenced this for an audio player https://github.com/lhz516/react-h5-audio-player
 
 const PlayerApp = (props) => {
-  const [playlist, setPlaylist]= useState([])
+  const [myPlaylist, setmyPlaylist]= useState([])
+  const [playlist, setPlayList] = useState([])
   const [currentTrack, setTrackIndex] = React.useState(0)
   const handleClickNext = () => {
       console.log('click next')
@@ -24,17 +25,19 @@ const PlayerApp = (props) => {
   }
 
   useEffect(() => {
-    const createPlaylist = () => {
-        setPlaylist(...playlist, props.songs)
-        console.log(playlist)
+    const createPlaylist = (e) => {
+        setPlayList({...playlist, src:props.songs})
+      console.log(playlist)
     }
     createPlaylist()
   },[])
+
+  console.log(playlist)
   return (
       <div className="container" id="footer">
         <AudioPlayer
           volume="0.5"
-          // src={playlist[currentTrack].src}
+          src={props.songs[currentTrack].src}
           showSkipControls
           onClickNext={handleClickNext}
           onEnded={handleEnd}

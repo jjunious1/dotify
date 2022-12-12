@@ -7,7 +7,7 @@ import Browse from './Browse'
 import { BASE_URL } from '../services/api'
 
 const Music = ({ authenticated, user, handleLogout }) => {
-  const [myPlaylist, setMyPlaylist] = useState([])
+  const [myPlayList, setMyPlaylist] = useState([])
   let { id } = useParams()
 
   useEffect(() => {
@@ -20,9 +20,7 @@ const Music = ({ authenticated, user, handleLogout }) => {
   return (
     <div>
       {/* <Browse /> */}
-      {myPlaylist.map((songs) => (
-        <PlayerApp songs={songs.music_file} />
-      ))}
+      <PlayerApp songs={myPlayList.map((song) => song.music_file)} />
     </div>
   )
 }
