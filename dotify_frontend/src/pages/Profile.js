@@ -6,6 +6,7 @@ const Register = () => {
   const [formValues, setFormValues] = useState({
     name: '',
     email: '',
+    dotifyId: '',
     password: '',
     confirmPassword: ''
   })
@@ -20,11 +21,13 @@ const Register = () => {
     await RegisterUser({
       name: formValues.name,
       email: formValues.email,
+      dotifyId: formValues.dotifyId,
       password: formValues.password
     })
     setFormValues({
       name: '',
       email: '',
+      dotifyId: '',
       password: '',
       confirmPassword: ''
     })
@@ -59,7 +62,17 @@ const Register = () => {
               required
             />
           </div>
-
+          <div className="input-wrapper">
+            <input
+              className="dotifyId"
+              onChange={handleChange}
+              name="dotifyId"
+              type="dotifyId"
+              placeholder="dotifyId"
+              value={formValues.dotifyId}
+              required
+            />
+          </div>
           <div className="input-wrapper">
             <input
               className="password"
