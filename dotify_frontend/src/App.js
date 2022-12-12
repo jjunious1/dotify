@@ -37,11 +37,13 @@ function App() {
 
   return (
     <div>
-      <Nav
-        authenticated={authenticated}
-        user={user}
-        handleLogOut={handleLogOut}
-      />
+      <header className="navbar">
+        <Nav
+          authenticated={authenticated}
+          user={user}
+          handleLogOut={handleLogOut}
+        />
+      </header>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -55,7 +57,15 @@ function App() {
               />
             }
           />
-          <Route path="/userPage" element={<Music />} />
+          <Route
+            path="/userpage/:id"
+            element={
+              <Music
+                setUser={setUser}
+                toggleAuthenticated={toggleAuthenticated}
+              />
+            }
+          />
         </Routes>
       </main>
     </div>

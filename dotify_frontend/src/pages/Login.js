@@ -18,7 +18,7 @@ const Login = (props) => {
     setFormValues({ dotifyId: '', password: '' })
     props.setUser(payload)
     props.toggleAuthenticated(true)
-    navigate(`/profile/${payload.id}`)
+    navigate(`/userpage/${payload.id}`)
   }
 
   return (

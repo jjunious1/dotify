@@ -5,7 +5,7 @@ import React from 'react'
 
 //referenced this for an audio player
 
-const PlayerApp = () => {
+const PlayerApp = (props) => {
   const [playlist, setPlaylist]= useState([])
   const [currentTrack, setTrackIndex] = React.useState(0)
   const handleClickNext = () => {
@@ -23,7 +23,7 @@ const PlayerApp = () => {
   }
 
   return (
-      <div className="container">
+      <div className="container" id="footer">
         <AudioPlayer
           volume="0.5"
           // src={playlist[currentTrack].src}
