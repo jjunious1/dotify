@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Home from './pages/Home'
+import Music from './pages/Music'
 import Nav from './components/Nav'
 import { CheckSession } from './services/Auth'
 
@@ -54,6 +55,7 @@ function App() {
               />
             }
           />
+          <Route path="/userPage" element={<Music />} />
         </Routes>
       </main>
     </div>

@@ -7,31 +7,39 @@ const Nav = ({ authenticated, user, handleLogout }) => {
 if (user) {
   authenticatedOptions = (
     <nav className="links">
-      <div className="dropdown">
-        <a href="menu" class="box-shadow-menu"> Menu</a>
-        <p className="update" onClick={() => navigate(-1)}>Back</p>
-      </div>
       <Link to="/">Home</Link>
       <Link onClick={handleLogout} to="/">Sign Out</Link>
+      <div className="dropdown">
+        <a class="box-shadow-menu dropbtn">
+          <div>
+            <h3 className="drop">Welcome</h3>
+            <p className="drop" onClick={() => navigate(-1)}>Back</p>
+          </div>
+        </a>
+      </div>
     </nav>
   )
 }
 
 const publicOptions = (
   <nav className="links">
-    <div className="dropdown">
-    <a href="menu" class="box-shadow-menu"></a>
-        <p className="drop" onClick={() => navigate(-1)}>Back</p>
-    </div>
     <Link to="/">Home</Link>
     <Link to="/Register">Register</Link>
     <Link to="/Login">Login</Link>
+    <div className="dropdown">
+    <a class="box-shadow-menu dropbtn">
+      <div className="dropdown-content">
+        <h3 className="drop">Welcome</h3>
+        <p className="drop" onClick={() => navigate(-1)}>Back</p>
+      </div>
+    </a>
+    </div>
     
   </nav>
 )
 
 return (
-  <header className=''>
+  <header className='sticky-header'>
     <Link to="/">
       <div className="navbar">
       </div>
