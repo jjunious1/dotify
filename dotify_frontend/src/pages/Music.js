@@ -20,7 +20,9 @@ const Music = ({ authenticated, user, handleLogout }) => {
   return (
     <div>
       {/* <Browse /> */}
-      <PlayerApp />
+      {myPlaylist.map((songs) => (
+        <PlayerApp songs={songs.music_file} />
+      ))}
     </div>
   )
 }

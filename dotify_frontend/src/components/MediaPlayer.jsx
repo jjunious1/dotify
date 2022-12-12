@@ -2,6 +2,7 @@ import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 import {useState} from 'react'
 import React from 'react'
+import { useEffect } from 'react'
 
 //referenced this for an audio player https://github.com/lhz516/react-h5-audio-player
 
@@ -22,6 +23,13 @@ const PlayerApp = (props) => {
         );
   }
 
+  useEffect(() => {
+    const createPlaylist = () => {
+        setPlaylist(...playlist, props.songs)
+        console.log(playlist)
+    }
+    createPlaylist()
+  },[])
   return (
       <div className="container" id="footer">
         <AudioPlayer
