@@ -5,6 +5,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Music from './pages/Music'
+import Profile from './pages/Profile'
 import Nav from './components/Nav'
 import { CheckSession } from './services/Auth'
 
@@ -55,6 +56,10 @@ function App() {
           <Route
             path="/userpage/:id"
             element={<Music user={user} authenticated={authenticated} />}
+          />
+          <Route
+            path="/profile"
+            element={<Profile user={user} authenticated={authenticated} />}
           />
         </Routes>
       </main>
