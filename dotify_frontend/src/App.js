@@ -1,10 +1,11 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import Register from './pages/Register'
+import Login from './pages/Login'
 import Home from './pages/Home'
 import Nav from './components/Nav'
 import { CheckSession } from './services/Auth'
-// import PlayerApp from './components/MediaPlayer'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -43,6 +44,16 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/login"
+            element={
+              <Login
+                setUser={setUser}
+                toggleAuthenticated={toggleAuthenticated}
+              />
+            }
+          />
         </Routes>
       </main>
     </div>

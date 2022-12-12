@@ -25,7 +25,7 @@ const publicOptions = (
     </div>
     <Link to="/">Home</Link>
     <Link to="/Register">Register</Link>
-    <Link to="/Signin">Sign In</Link>
+    <Link to="/Login">Login</Link>
     
   </nav>
 )

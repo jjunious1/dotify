@@ -31,7 +31,7 @@ const Register = () => {
       password: '',
       confirmPassword: ''
     })
-    navigate('/signin')
+    navigate('/login')
   }
 
   return (
@@ -39,7 +39,7 @@ const Register = () => {
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <h1>Hello</h1>
-          <p>Create your YouBuy Account below</p>
+          <p>Create your Dotify Account below</p>
           <div className="input-wrapper">
             <input
               className="name"
