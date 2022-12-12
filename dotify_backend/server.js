@@ -17,6 +17,6 @@ app.use(express.json())
 //routes
 app.use('/auth', AuthRouter)
 app.use('/music', MusicRouter)
-app.use('/profile', LikedMusic)
+app.use('/userpage', LikedMusic)
 
 app.listen(PORT, () => console.log(`Sever Running On Port: ${PORT}`))

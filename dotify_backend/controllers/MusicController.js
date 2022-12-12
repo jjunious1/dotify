@@ -9,9 +9,10 @@ const getMusic = async (req, res) => {
   }
 }
 
+// for filling out database
 const createMusic = async (req, res) => {
   try {
-    const newSong = await Music.create(req.body)
+    const newSong = await Music.bulkCreate(req.body)
     res.send(newSong)
   } catch (error) {
     throw error

@@ -2,13 +2,14 @@ const router = require('express').Router()
 const controller = require('../controllers/LikedMusicController')
 const middleware = require('../middleware')
 
+//CRD
 router.get(
-  '/',
+  '/:id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.GetMySongs
 )
-router.post('/', controller.GetMusic)
+router.post('/', controller.AddLike)
 
 router.delete(
   '/',
@@ -18,6 +19,6 @@ router.delete(
 )
 
 //used only on backend
-router.get('/songs', controller.GetSongs)
+router.get('/songs', controller.GetAllSongs)
 
 module.exports = router

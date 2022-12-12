@@ -8,17 +8,8 @@ router.get(
   middleware.verifyToken,
   controller.getMusic
 )
-router.post(
-  '/',
-  middleware.stripToken,
-  middleware.verifyToken,
-  controller.createMusic
-)
-router.delete(
-  '/',
-  middleware.stripToken,
-  middleware.verifyToken,
-  controller.deleteMusic
-)
+//used only on backend
+router.post('/', controller.createMusic)
+router.delete('/', controller.deleteMusic)
 
 module.exports = router

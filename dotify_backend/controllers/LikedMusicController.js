@@ -1,10 +1,16 @@
 const { LikedMusic, Music, User } = require('../models')
-// const { Op } = require('sequelize')
 
-const GetMusic = async (req, res) => {
+const AddLike = async (req, res) => {
   try {
-    const liked = await LikedMusic.create(req.body)
-    res.send(liked)
+    const findOne = await LikedMusic.findOne({ where: req.body })
+    if (findOne) {
+      res.send({
+        msg: 'You already liked this song. Please remove liked song or add another'
+      })
+    } else {
+      const liked = await LikedMusic.create(req.body)
+      res.send(liked)
+    }
   } catch (error) {
     throw error
   }
@@ -13,7 +19,7 @@ const GetMusic = async (req, res) => {
 const GetMySongs = async (req, res) => {
   try {
     const songs = await User.findAll({
-      where: { id: req.body.id },
+      where: { id: req.params.id },
       include: [{ model: Music, as: 'songs' }]
     })
     res.send(songs)
@@ -24,14 +30,19 @@ const GetMySongs = async (req, res) => {
 
 const removeSong = async (req, res) => {
   try {
-    await LikedMusic.destroy({ where: { id: req.body.id } })
-    res.send({ msg: 'This song was removed from your playlist' })
+    const findOne = await LikedMusic.findOne({ where: req.body })
+    if (findOne) {
+      await LikedMusic.destroy({ where: req.body })
+      res.send({ msg: 'This song was removed from your playlist' })
+    } else {
+      res.send({ msg: 'this song is no longer here' })
+    }
   } catch (error) {
     throw error
   }
 }
 
-const GetSongs = async (req, res) => {
+const GetAllSongs = async (req, res) => {
   try {
     const allSongs = await LikedMusic.findAll()
     res.send(allSongs)
@@ -40,8 +51,8 @@ const GetSongs = async (req, res) => {
   }
 }
 module.exports = {
-  GetMusic,
+  AddLike,
   GetMySongs,
   removeSong,
-  GetSongs
+  GetAllSongs
 }

@@ -3,6 +3,7 @@ const controller = require('../controllers/AuthController')
 const middleware = require('../middleware')
 const controller2 = require('../controllers/UserController')
 
+//full Crud
 router.post('/login', controller.Login)
 router.post('/register', controller.Register)
 router.put('/update', controller.updatePassword)
