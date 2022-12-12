@@ -30,7 +30,6 @@ const PlayerApp = (props) => {
           showSkipControls
           onClickNext={handleClickNext}
           onEnded={handleEnd}
-          // Try other props!
         />
       </div>
     );
