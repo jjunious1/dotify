@@ -1,15 +1,14 @@
 body {
+  /* background-color: rgb(101,198,196); */
 }
 header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  margin-top: 0;
-  background-color: #65c6c4;
+  display: flex;
+  margin: -.5em;
+  background-color:rgb(101,198,196);
 }
 
 .logo {
-  width: 8em;
+  width: 10em;
 }
 .box-shadow-menu {
   position: relative;
@@ -52,15 +51,15 @@ header {
   display: block;
   padding: .5em .5em;
 }
-.dropdown-content:hover {
-  background-color: #076c6a;
+.dropdown-content:hover a:hover {
+  background-color: rgba(34, 144, 142, 0.6);
 }
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
 .dropdown:hover .dropbtn {
-background-color: #076c6a;
+background-color: rgba(101,198,196 , .6);
 }
 
 #footer {

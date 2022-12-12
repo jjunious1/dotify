@@ -14,6 +14,7 @@ if (user) {
             <Link onClick={() => navigate(-1)}>Home</Link>
             <Link onClick={handleLogout} to="/">Sign Out</Link>
             <Link to='/profile'>Profile</Link>
+            <Link className="drop" onClick={() => navigate(-1)}>Back</Link>
           </div>
           <Link>Playlist</Link>
         </a>
@@ -31,7 +32,7 @@ const publicOptions = (
         <Link to="/browse">Browse</Link>
         <Link to="/Register">Register</Link>
         <Link to="/Login">Login</Link>
-        <p className="drop" onClick={() => navigate(-1)}>Back</p>
+        <Link className="drop" onClick={() => navigate(-1)}>Back</Link>
       </div>
     </a>
     </div> 

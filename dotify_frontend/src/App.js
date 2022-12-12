@@ -54,12 +54,7 @@ function App() {
           />
           <Route
             path="/userpage/:id"
-            element={
-              <Music
-                setUser={setUser}
-                toggleAuthenticated={toggleAuthenticated}
-              />
-            }
+            element={<Music user={user} authenticated={authenticated} />}
           />
         </Routes>
       </main>
