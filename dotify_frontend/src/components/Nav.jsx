@@ -8,12 +8,8 @@ if (user) {
   authenticatedOptions = (
     <nav className="links">
       <div className="dropdown">
-        <button className="dropbtn">👤</button>
-        <div className="dropdown-content">
-        <h3 className="drop">Welcome</h3>
-        <p className="drop">{user.email}</p>
+        <a href="menu" class="box-shadow-menu"> Menu</a>
         <p className="update" onClick={() => navigate(-1)}>Back</p>
-        </div>
       </div>
       <Link to="/">Home</Link>
       <Link onClick={handleLogout} to="/">Sign Out</Link>
@@ -24,11 +20,8 @@ if (user) {
 const publicOptions = (
   <nav className="links">
     <div className="dropdown">
-      <button className="dropbtn">👤</button>
-      <div className="dropdown-content">
-        <h3 className="drop">Welcome</h3>
+    <a href="menu" class="box-shadow-menu"></a>
         <p className="drop" onClick={() => navigate(-1)}>Back</p>
-      </div>
     </div>
     <Link to="/">Home</Link>
     <Link to="/Register">Register</Link>

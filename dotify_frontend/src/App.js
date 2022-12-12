@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Nav from './components/Nav'
 import { CheckSession } from './services/Auth'
+// import PlayerApp from './components/MediaPlayer'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)

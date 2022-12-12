@@ -1,5 +1,20 @@
-body {
+/* body {
   background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-XFAvc5RkigY%2FULS7oOK01yI%2FAAAAAAAAN2U%2Fwq-RQ-_DY1A%2Fs1600%2F3D%2BPurple%2BWallpapers%2B5.jpg&f=1&nofb=1&ipt=bc3d328116790375f27a4b6acbac201f1674e52aba9c8b54e2811a5031fd9bc6&ipo=images) no-repeat center center fixed;
   background-size: cover ;
   width: 100%
+} */
+
+.box-shadow-menu {
+  position: relative;
+  padding-left: 1.25em;
+}
+.box-shadow-menu:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  width: 1em;
+  height: 0.15em;
+  background: black;
+  box-shadow: 0 0.25em 0 0 black, 0 0.5em 0 0 black;
 }
