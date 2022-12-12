@@ -3,7 +3,7 @@ import 'react-h5-audio-player/lib/styles.css'
 import {useState} from 'react'
 import React from 'react'
 
-//referenced this for an audio player
+//referenced this for an audio player https://github.com/lhz516/react-h5-audio-player
 
 const PlayerApp = (props) => {
   const [playlist, setPlaylist]= useState([])

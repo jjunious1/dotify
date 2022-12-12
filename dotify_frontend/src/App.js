@@ -5,6 +5,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Music from './pages/Music'
+import Browse from './pages/Browse'
 import Nav from './components/Nav'
 import { CheckSession } from './services/Auth'
 
@@ -63,6 +64,7 @@ function App() {
               <Music
                 setUser={setUser}
                 toggleAuthenticated={toggleAuthenticated}
+                handleLogOut={handleLogOut}
               />
             }
           />
