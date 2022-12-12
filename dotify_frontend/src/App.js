@@ -5,7 +5,6 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Music from './pages/Music'
-import Browse from './pages/Browse'
 import Nav from './components/Nav'
 import { CheckSession } from './services/Auth'
 
@@ -16,10 +15,7 @@ function App() {
   const handleLogOut = () => {
     setUser(null)
     toggleAuthenticated(false)
-    const token = localStorage.getItem('token')
-    if (token) {
-      localStorage.clear()
-    }
+    localStorage.clear()
   }
 
   const checkToken = async () => {
@@ -38,13 +34,11 @@ function App() {
 
   return (
     <div>
-      <header className="navbar">
-        <Nav
-          authenticated={authenticated}
-          user={user}
-          handleLogOut={handleLogOut}
-        />
-      </header>
+      <Nav
+        authenticated={authenticated}
+        user={user}
+        handleLogOut={handleLogOut}
+      />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -64,7 +58,6 @@ function App() {
               <Music
                 setUser={setUser}
                 toggleAuthenticated={toggleAuthenticated}
-                handleLogOut={handleLogOut}
               />
             }
           />

@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import logo from '../images/logo-png.png'
 
 
 const Nav = ({ authenticated, user, handleLogout }) => {
@@ -6,13 +7,15 @@ const Nav = ({ authenticated, user, handleLogout }) => {
   let authenticatedOptions
 if (user) {
   authenticatedOptions = (
-    <nav>
-      <Link className="links" onClick={() => navigate(-1)}>Home</Link>
-      <Link className="links" onClick={handleLogout} to="/">Sign Out</Link>
+    <nav className="navbar">
       <div className="dropdown">
         <a class="box-shadow-menu dropbtn">
           <div className="dropdown-content links">
+            <Link onClick={() => navigate(-1)}>Home</Link>
+            <Link onClick={handleLogout} to="/">Sign Out</Link>
+            <Link to='/profile'>Profile</Link>
           </div>
+          <Link>Playlist</Link>
         </a>
       </div>
     </nav>
@@ -20,27 +23,28 @@ if (user) {
 }
 
 const publicOptions = (
-  <nav>
-    <Link className="links" to="/">Home</Link>
-    <Link className="links" to="/browse">Browse</Link>
-    <Link className="links" to="/Register">Register</Link>
-    <Link className="links" to="/Login">Login</Link>
+  <nav className="navbar">
     <div className="dropdown">
     <a class="box-shadow-menu dropbtn">
       <div className="dropdown-content links">
-        <h3 className="drop">Welcome</h3>
+        <Link to="/">Home</Link>
+        <Link to="/browse">Browse</Link>
+        <Link to="/Register">Register</Link>
+        <Link to="/Login">Login</Link>
         <p className="drop" onClick={() => navigate(-1)}>Back</p>
       </div>
     </a>
-    </div>
-    
+    </div> 
   </nav>
 )
 
 return (
-  <header className='sticky-header'>
-    <div className="navbar">
-      {authenticated && user ? authenticatedOptions : publicOptions}
+  <header className="sticky-header">
+    <div className="nav">
+      <img className='logo' src={logo} alt="logo" />
+      <div className="menu">
+        {authenticated && user ? authenticatedOptions : publicOptions}
+      </div>
     </div>
   </header>
 )

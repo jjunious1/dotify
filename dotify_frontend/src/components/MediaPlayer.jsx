@@ -37,7 +37,7 @@ const PlayerApp = (props) => {
       <div className="container" id="footer">
         <AudioPlayer
           volume="0.5"
-          src={props.songs[currentTrack].src}
+          // src={props.songs[currentTrack].src}
           showSkipControls
           onClickNext={handleClickNext}
           onEnded={handleEnd}
