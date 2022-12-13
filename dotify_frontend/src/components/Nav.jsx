@@ -11,7 +11,7 @@ if (user) {
       <div className="dropdown">
         <a className="box-shadow-menu dropbtn">
           <div className="dropdown-content links">
-            <Link onClick={() => navigate(-1)}>Home</Link>
+            <Link to="/browse">Home</Link>
             <Link onClick={handleLogout} to="/">Sign Out</Link>
             <Link to='/profile'>Profile</Link>
             <Link>Playlist</Link>
@@ -28,7 +28,7 @@ const publicOptions = (
     <div className="dropdown">
     <a className="box-shadow-menu dropbtn">
       <div className="dropdown-content links">
-        <Link to="/">Home</Link>
+        <Link to="/userpage">Home</Link>
         <Link to="/browse">Browse</Link>
         <Link to="/Register">Register</Link>
         <Link to="/Login">Login</Link>
