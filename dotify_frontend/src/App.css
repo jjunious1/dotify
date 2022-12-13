@@ -71,6 +71,24 @@ background-color: rgba(101,198,196 , .6);
 .browse_text {
   text-align: center;
 }
+/* songs image wrapper */
+.songs {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 1em;
+  margin: 3em;
+  width: 20em;
+  text-align: center;
+  
+}
+li, ul {
+  list-style: none;
+}
+
+img {
+  width: 15em;
+  border-radius: 5em;
+}
 /* effects to let people know to sign up */
 /* .img_descr {
   position: absolute;
@@ -80,19 +98,3 @@ background-color: rgba(101,198,196 , .6);
 .img_wrap:hover .img_descr {
   visibility: visible;
 } */
-/* heart css */
-[id='toggle-heart'] {
-  position: absolute;
-  left: -100vw;
-}
-[for='toggle-heart'] {
-  color: #aab8c2;
-}
-
-[id='toggle-heart']:checked + label {
-  color: #e2264d;
-}
-[for='toggle-heart'] {
-  font-size: 2em;
-  cursor: pointer;
-}

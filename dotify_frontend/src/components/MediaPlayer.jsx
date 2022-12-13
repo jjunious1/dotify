@@ -7,7 +7,6 @@ import React from 'react'
 //referenced this for an audio player https://github.com/lhz516/react-h5-audio-player
 
 const PlayerApp = (props) => {
-  const [myPlaylist, setmyPlaylist]= useState([])
   const [playlist, setPlayList] = useState([])
   const [currentTrack, setTrackIndex] = React.useState(0)
   const handleClickNext = () => {
@@ -25,7 +24,7 @@ const PlayerApp = (props) => {
   }
 
   const makePlayList = () => {
-    setPlayList(props.songs)
+    setPlayList.push(props.songs)
     console.log(playlist)
   }
 

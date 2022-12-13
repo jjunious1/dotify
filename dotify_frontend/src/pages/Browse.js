@@ -3,10 +3,14 @@ import Client from '../services/api'
 import { BASE_URL } from '../services/api'
 import { useParams } from 'react-router-dom'
 import PlayerApp from '../components/MediaPlayer'
+import AudioPlayer from 'react-h5-audio-player'
+import 'react-h5-audio-player/lib/styles.css'
+import React from 'react'
 
 const Browse = ({ authenticated, user }) => {
-  const [songs, setSongs] = useState([])
   const { id } = useParams()
+  const [songs, setSongs] = useState([])
+  const [playlist, setPlayList] = useState('')
   const [likeSong, setLikedSong] = useState({
     musicId: 0,
     userId: parseInt(id)
@@ -30,25 +34,43 @@ const Browse = ({ authenticated, user }) => {
     console.log(add)
   }
 
+  const playSong = (e) => {
+    setPlayList(e.target.value)
+  }
+
   let authenticatedOptions
   if (user) {
     authenticatedOptions = (
       <div>
-        <ul className="songs">
+        <ul>
           {songs.map((song) => (
-            <li key={song.id}>
-              <h3>{song.artists_name}</h3>
-              <h4>{song.genre}</h4>
-              <img src={song.img} alt="image" />
-              <form onSubmit={addLike}>
-                <button type="submit" value={song.id} onClick={addLikedSong}>
-                  Like
+            <div className="songs">
+              <li key={song.id}>
+                <img src={song.img} alt="image" />
+                <button value={song.music_file} onClick={playSong}>
+                  Play
                 </button>
-              </form>
-            </li>
+                <h3>{song.artists_name}</h3>
+                <h4>{song.genre}</h4>
+                <form onSubmit={addLike}>
+                  <button type="submit" value={song.id} onClick={addLikedSong}>
+                    Like
+                  </button>
+                </form>
+              </li>
+            </div>
           ))}
         </ul>
-        <PlayerApp />
+        <div className="container" id="footer">
+          <AudioPlayer
+            volume="0.5"
+            autoPlay={false}
+            src={playlist}
+            showSkipControls
+            // onClickNext={handleClickNext}
+            // onEnded={handleEnd}
+          />
+        </div>
       </div>
     )
   }
@@ -56,13 +78,15 @@ const Browse = ({ authenticated, user }) => {
     <div>
       <h3 className="browse_text">Please login or register to play music!</h3>
       <div>
-        <ul className="songs2">
+        <ul>
           {songs.map((song) => (
-            <li key={song.id}>
-              <h3>{song.artists_name}</h3>
-              <h4>{song.genre}</h4>
-              <img className="img_wrap" src={song.img} alt="image" />
-            </li>
+            <div className="songs">
+              <li key={song.id}>
+                <img className="img_wrap" src={song.img} alt="image" />
+                <h3>{song.artists_name}</h3>
+                <h4>{song.genre}</h4>
+              </li>
+            </div>
           ))}
         </ul>
       </div>
