@@ -35,7 +35,7 @@ const PlayerApp = (props) => {
         <AudioPlayer
           volume="0.5"
           autoPlay={false}
-          src={props.songs[currentTrack]}
+          src={[currentTrack]}
           showSkipControls
           onClickNext={handleClickNext}
           onEnded={handleEnd}

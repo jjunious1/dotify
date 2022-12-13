@@ -68,6 +68,18 @@ background-color: rgba(101,198,196 , .6);
   bottom: 0;
   width: 100%;
 }
+.browse_text {
+  text-align: center;
+}
+/* effects to let people know to sign up */
+/* .img_descr {
+  position: absolute;
+  visibility: hidden;
+  background: rgba(29, 106, 154, 0.72);
+}
+.img_wrap:hover .img_descr {
+  visibility: visible;
+} */
 /* heart css */
 [id='toggle-heart'] {
   position: absolute;

@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import PlayerApp from '../components/MediaPlayer'
 import React from 'react'
 import Client from '../services/api'
 import Browse from './Browse'
 import { BASE_URL } from '../services/api'
 
-const Music = ({ authenticated, user, handleLogout }) => {
+const Music = ({ authenticated, user }) => {
   const [myPlayList, setMyPlaylist] = useState([])
   let { id } = useParams()
 
@@ -22,7 +21,6 @@ const Music = ({ authenticated, user, handleLogout }) => {
     authenticatedOptions = (
       <div>
         <Browse />
-        <PlayerApp songs={myPlayList?.map((song) => song.music_file)} />
       </div>
     )
   }
@@ -33,7 +31,9 @@ const Music = ({ authenticated, user, handleLogout }) => {
   )
 
   return (
-    <div>{authenticated && user ? authenticatedOptions : publicOptions}</div>
+    <div>
+      <Browse user={user} authenticated={authenticated} />
+    </div>
   )
 }
 
