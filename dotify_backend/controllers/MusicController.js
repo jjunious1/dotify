@@ -19,6 +19,19 @@ const createMusic = async (req, res) => {
   }
 }
 
+const updateMusic = async (req, res) => {
+  try {
+    const update = await Music.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+    res.send(update)
+  } catch (error) {
+    throw error
+  }
+}
+
 const deleteMusic = async (req, res) => {
   try {
     const { id } = req.body
@@ -31,5 +44,6 @@ const deleteMusic = async (req, res) => {
 module.exports = {
   getMusic,
   createMusic,
-  deleteMusic
+  deleteMusic,
+  updateMusic
 }

@@ -11,5 +11,6 @@ router.get(
 //used only on backend
 router.post('/', controller.createMusic)
 router.delete('/', controller.deleteMusic)
+router.put('/:id', controller.updateMusic)
 
 module.exports = router
