@@ -2,7 +2,7 @@ import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 import {useState} from 'react'
 import React from 'react'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 //referenced this for an audio player https://github.com/lhz516/react-h5-audio-player
 
@@ -24,19 +24,17 @@ const PlayerApp = (props) => {
         );
   }
 
-  // useEffect(() => {
-  //   const createPlaylist = (e) => {
-  //       setPlayList({...playlist, src:props.songs})
-  //     console.log(playlist)
-  //   }
-  //   createPlaylist()
-  // },[])
+  const makePlayList = () => {
+    setPlayList(props.songs)
+    console.log(playlist)
+  }
 
   console.log(playlist)
   return (
       <div className="container" id="footer">
         <AudioPlayer
           volume="0.5"
+          autoPlay= "false"
           src={props.songs[currentTrack]}
           showSkipControls
           onClickNext={handleClickNext}

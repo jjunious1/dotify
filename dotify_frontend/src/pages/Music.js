@@ -17,12 +17,24 @@ const Music = ({ authenticated, user, handleLogout }) => {
     }
     getMySongs()
   }, [])
-  return (
-    <div>
-      {/* <Browse /> */}
+  let authenticatedOptions
+  if (user) {
+    authenticatedOptions = (
+      <div>
+        {/* <Browse /> */}
 
-      <PlayerApp songs={myPlayList?.map((song) => song.music_file)} />
+        <PlayerApp songs={myPlayList?.map((song) => song.music_file)} />
+      </div>
+    )
+  }
+  const publicOptions = (
+    <div>
+      <Browse />
     </div>
+  )
+
+  return (
+    <div>{authenticated && user ? authenticatedOptions : publicOptions}</div>
   )
 }
 
