@@ -10,6 +10,7 @@ const Profile = ({ authenticated, user }) => {
     password: '',
     confirmPassword: ''
   })
+  const dotifyId = user.dotifyId
 
   //used to reset the users password
 
@@ -25,7 +26,7 @@ const Profile = ({ authenticated, user }) => {
 
   const handleDelete = async (e) => {
     e.preventDefault()
-    const deleteUser = await Client.delete(`${BASE_URL}`, formValues)
+    const deleteUser = await Client.delete(`${BASE_URL}auth`, dotifyId)
     console.log(deleteUser)
   }
   let authenticatedOptions

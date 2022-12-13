@@ -21,8 +21,7 @@ const Music = ({ authenticated, user, handleLogout }) => {
   if (user) {
     authenticatedOptions = (
       <div>
-        {/* <Browse /> */}
-
+        <Browse />
         <PlayerApp songs={myPlayList?.map((song) => song.music_file)} />
       </div>
     )

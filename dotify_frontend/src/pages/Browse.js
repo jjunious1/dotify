@@ -21,6 +21,7 @@ const Browse = ({ authenticated, user, handleLogout }) => {
           <li key={song.id}>
             <h3>{song.artists_name}</h3>
             <h4>{song.genre}</h4>
+            <img src={song.img} alt="image" />
           </li>
         ))}
       </ul>

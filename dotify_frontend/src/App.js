@@ -7,16 +7,20 @@ import Home from './pages/Home'
 import Music from './pages/Music'
 import Profile from './pages/Profile'
 import Nav from './components/Nav'
+import Browse from './pages/Browse'
 import { CheckSession } from './services/Auth'
+import { useNavigate } from 'react-router-dom'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
+  let navigate = useNavigate()
 
   const handleLogOut = () => {
     setUser(null)
     toggleAuthenticated(false)
     localStorage.clear()
+    navigate('/')
   }
 
   const checkToken = async () => {
@@ -53,6 +57,7 @@ function App() {
               />
             }
           />
+          <Route path="/browse" element={<Browse />} />
           <Route
             path="/userpage/:id"
             element={<Music user={user} authenticated={authenticated} />}
