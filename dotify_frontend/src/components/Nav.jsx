@@ -9,7 +9,7 @@ if (user) {
   authenticatedOptions = (
     <nav className="navbar">
       <div className="dropdown">
-        <a class="box-shadow-menu dropbtn">
+        <a className="box-shadow-menu dropbtn">
           <div className="dropdown-content links">
             <Link onClick={() => navigate(-1)}>Home</Link>
             <Link onClick={handleLogout} to="/">Sign Out</Link>
@@ -26,7 +26,7 @@ if (user) {
 const publicOptions = (
   <nav className="navbar">
     <div className="dropdown">
-    <a class="box-shadow-menu dropbtn">
+    <a className="box-shadow-menu dropbtn">
       <div className="dropdown-content links">
         <Link to="/">Home</Link>
         <Link to="/browse">Browse</Link>

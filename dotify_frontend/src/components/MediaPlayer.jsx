@@ -24,20 +24,20 @@ const PlayerApp = (props) => {
         );
   }
 
-  useEffect(() => {
-    const createPlaylist = (e) => {
-        setPlayList({...playlist, src:props.songs})
-      console.log(playlist)
-    }
-    createPlaylist()
-  },[])
+  // useEffect(() => {
+  //   const createPlaylist = (e) => {
+  //       setPlayList({...playlist, src:props.songs})
+  //     console.log(playlist)
+  //   }
+  //   createPlaylist()
+  // },[])
 
   console.log(playlist)
   return (
       <div className="container" id="footer">
         <AudioPlayer
           volume="0.5"
-          // src={props.songs[currentTrack].src}
+          src={props.songs[currentTrack]}
           showSkipControls
           onClickNext={handleClickNext}
           onEnded={handleEnd}
