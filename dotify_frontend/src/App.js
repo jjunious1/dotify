@@ -5,6 +5,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Music from './pages/Music'
+import Playlist from './pages/Playlist'
 import Profile from './pages/Profile'
 import Nav from './components/Nav'
 import Browse from './pages/Browse'
@@ -57,10 +58,13 @@ function App() {
               />
             }
           />
-          <Route path="/browse" element={<Browse />} />
+          <Route
+            path="/browse"
+            element={<Browse user={user} authenticated={authenticated} />}
+          />
           <Route
             path="/userpage/:id"
-            element={<Music user={user} authenticated={authenticated} />}
+            element={<Playlist user={user} authenticated={authenticated} />}
           />
           <Route
             path="/profile"

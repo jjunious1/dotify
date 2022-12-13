@@ -4,7 +4,7 @@ import { BASE_URL } from '../services/api'
 import { useParams } from 'react-router-dom'
 import PlayerApp from '../components/MediaPlayer'
 
-const Browse = ({ authenticated, user, handleLogout }) => {
+const Browse = ({ authenticated, user }) => {
   const [songs, setSongs] = useState([])
   const { id } = useParams()
   const [likeSong, setLikedSong] = useState({
@@ -62,11 +62,9 @@ const Browse = ({ authenticated, user, handleLogout }) => {
               <h3>{song.artists_name}</h3>
               <h4>{song.genre}</h4>
               <img className="img_wrap" src={song.img} alt="image" />
-              {/* <p className="img_descr">Please sign up to play music</p> */}
             </li>
           ))}
         </ul>
-        <PlayerApp />
       </div>
     </div>
   )
