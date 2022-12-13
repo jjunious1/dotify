@@ -1,9 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { UpdateUserPassword } from '../services/Auth'
+import Client from '../services/api'
+import { BASE_URL } from '../services/api'
 
 const Profile = ({ authenticated, user }) => {
-  const [formValues, setFormValues] = useState({ email: '', password: '' })
+  const [formValues, setFormValues] = useState({
+    dotifyId: user.dotifyId,
+    password: '',
+    confirmPassword: ''
+  })
 
   //used to reset the users password
 
@@ -16,28 +22,22 @@ const Profile = ({ authenticated, user }) => {
     const payload = await UpdateUserPassword(formValues)
     setFormValues({ dotifyId: '', password: '' })
   }
+
+  const handleDelete = async (e) => {
+    e.preventDefault()
+    const deleteUser = await Client.delete(`${BASE_URL}`, formValues)
+    console.log(deleteUser)
+  }
   let authenticatedOptions
   if (user) {
     authenticatedOptions = (
       <div>
-        <h1>Hello</h1>
-        <p>
-          Change the Password for your Dotify account or{' '}
-          <Link to="/Register">create an account</Link>
-        </p>
+        <h1>Welcome to your profile {user.dotifyId}</h1>
+        <h2>
+          You can update the password for your account or delete your account
+        </h2>
         <div className="sign">
           <form className="col" onSubmit={handleSubmit}>
-            <div className="input-wrapper">
-              <input
-                className="email"
-                onChange={handleChange}
-                name="email"
-                type="email"
-                placeholder="example@example.com"
-                value={formValues.email}
-                required
-              />
-            </div>
             <div className="input-wrapper">
               <input
                 className="password"
@@ -49,15 +49,30 @@ const Profile = ({ authenticated, user }) => {
                 required
               />
             </div>
+            <div className="input-wrapper">
+              <input
+                className="confirmPassword"
+                onChange={handleChange}
+                type="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm New Password"
+                value={formValues.confirmPassword}
+                required
+              />
+            </div>
             <div className="button1">
               <button
                 className="regButton"
-                disabled={!formValues.email || !formValues.password}
+                disabled={
+                  !formValues.password &&
+                  formValues.confirmPassword === formValues.password
+                }
               >
-                Reset
+                Change
               </button>
             </div>
           </form>
+          <button onClick={handleDelete}>Delete Account</button>
         </div>
       </div>
     )
