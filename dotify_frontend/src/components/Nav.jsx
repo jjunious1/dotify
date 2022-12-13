@@ -14,7 +14,7 @@ if (user) {
             <Link to="/browse">Home</Link>
             <Link onClick={handleLogout} to="/">Sign Out</Link>
             <Link to='/profile'>Profile</Link>
-            <Link>Playlist</Link>
+            <Link to={`/playlist/${user.id}`}>Playlist</Link>
             <Link className="drop" onClick={() => navigate(-1)}>Back</Link>
           </div>
         </a>
