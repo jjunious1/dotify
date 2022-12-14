@@ -25,10 +25,10 @@ const Login = (props) => {
     <div className="signIn-form">
       <h1 className="sign">Sign In</h1>
       <div className="sign-input-wrapper">
-        <label htmlFor="dotifyId">DotifyId</label>
         <form className="col" onSubmit={handleSubmit}>
           <input
             className="dotifyId"
+            placeholder="DotifyId"
             onChange={handleChange}
             name="dotifyId"
             type="dotifyId"
@@ -36,9 +36,9 @@ const Login = (props) => {
             required
           />
           <div className="sign-input-wrapper">
-            <label htmlFor="Password">Password</label>
             <input
               className="password"
+              placeholder="Password"
               onChange={handleChange}
               type="password"
               name="password"
