@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react'
 import Client from '../services/api'
 import { BASE_URL } from '../services/api'
-import { useParams } from 'react-router-dom'
-import PlayerApp from '../components/MediaPlayer'
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 import React from 'react'
 
 const Browse = ({ authenticated, user }) => {
-  const { id } = useParams()
   const [songs, setSongs] = useState([])
   const [playlist, setPlayList] = useState('')
   const [likeSong, setLikedSong] = useState({
@@ -46,7 +43,7 @@ const Browse = ({ authenticated, user }) => {
           {songs.map((song) => (
             <div className="songs">
               <li key={song.id}>
-                <img src={song.img} alt="image" />
+                <img src={song.img} alt="artist" />
                 <h3>{song.artists_name}</h3>
                 <h4>{song.genre}</h4>
                 <div className="buttons">
@@ -86,7 +83,7 @@ const Browse = ({ authenticated, user }) => {
           {songs.map((song) => (
             <div className="songs">
               <li key={song.id}>
-                <img className="img_wrap" src={song.img} alt="image" />
+                <img className="img_wrap" src={song.img} alt="artist" />
                 <h3>{song.artists_name}</h3>
                 <h4>{song.genre}</h4>
               </li>

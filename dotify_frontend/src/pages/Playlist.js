@@ -20,13 +20,12 @@ const Playlist = ({ authenticated, user }) => {
     const getMySongs = async () => {
       const response = await Client.get(`${BASE_URL}userpage/${id}`)
       setMyPlaylist(response.data[0].songs)
-      console.log(response.data)
-      response.data[0].songs.map((song) => {
-        playlist.push({ ['src']: song.music_file })
+      myPlayList?.map((song) => {
+        return playlist.push(song.music_file)
       })
     }
     getMySongs()
-  }, [remove])
+  }, [remove, id, playlist])
 
   const handleChange = (e) => {
     setRemoveSong({ ...remove, ['musicId']: e.target.value })
@@ -51,13 +50,13 @@ const Playlist = ({ authenticated, user }) => {
     )
   }
 
-  const runSongs = () => {
-    if (playlist !== null) {
-      return playlist
-    } else {
-      return playlist[currentTrack].src
-    }
-  }
+  // const runSongs = () => {
+  //   if (playlist !== null) {
+  //     return playlist
+  //   } else {
+  //     return playlist[currentTrack].src
+  //   }
+  // }
 
   return user && authenticated ? (
     <div>
@@ -65,7 +64,7 @@ const Playlist = ({ authenticated, user }) => {
         {myPlayList.map((songs) => (
           <div className="songs">
             <li key={songs.id}>
-              <img src={songs.img} alt="image" />
+              <img src={songs.img} alt="artist" />
               <h3>{songs.artists_name}</h3>
               <h4>{songs.genre}</h4>
               <form onSubmit={removeLike}>
@@ -80,9 +79,10 @@ const Playlist = ({ authenticated, user }) => {
       {playlist ? (
         <div className="container" id="footer">
           <AudioPlayer
+            className="audioplayer"
             volume="0.5"
-            autoPlay={false}
-            src={playlist[currentTrack].src}
+            onPlay={(e) => console.log('onPlay')}
+            src={playlist[currentTrack]}
             showSkipControls
             onClickNext={handleClickNext}
             onEnded={handleEnd}
