@@ -9,7 +9,7 @@ router.post('/register', controller.Register)
 router.put('/update', controller.updatePassword)
 router.get('/', controller2.GetUsers)
 router.delete(
-  '/',
+  '/:id',
   middleware.stripToken,
   middleware.verifyToken,
   controller2.DeleteUser

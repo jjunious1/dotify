@@ -1,5 +1,5 @@
 body {
-  /* background-color: rgb(101,198,196); */
+  /* background-color: black; */
 }
 header {
   display: flex;
@@ -98,8 +98,12 @@ img {
 }
 
 /* sign in and login in forms */
-
 .signIn-form {
+  padding: 1.2em 0;
+  position: relative;
+  z-index: 2;
+}
+/* .signIn-form {
   border: 2px transparent black;
   background-color: #65c6c4;
   border-radius: 1em;
@@ -124,7 +128,7 @@ img {
   border-radius: .3em;
   padding: 0 1.5em;
   box-shadow: 0px .5em 1em 0px rgba(0,0,0,0.2); ;
-}
+} */
 
 /* effects to let people know to sign up */
 /* .img_descr {
@@ -135,3 +139,4 @@ img {
 .img_wrap:hover .img_descr {
   visibility: visible;
 } */
+

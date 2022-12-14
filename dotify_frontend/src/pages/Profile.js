@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { UpdateUserPassword } from '../services/Auth'
 import Client from '../services/api'
 import { BASE_URL } from '../services/api'
+import { useNavigate } from 'react-router-dom'
 
 const Profile = ({ authenticated, user }) => {
   const [formValues, setFormValues] = useState({
@@ -11,6 +12,7 @@ const Profile = ({ authenticated, user }) => {
     confirmPassword: ''
   })
   const dotifyId = user.dotifyId
+  let navigate = useNavigate()
 
   //used to reset the users password
 
@@ -26,7 +28,8 @@ const Profile = ({ authenticated, user }) => {
 
   const handleDelete = async (e) => {
     e.preventDefault()
-    const deleteUser = await Client.delete(`${BASE_URL}auth`, dotifyId)
+    const deleteUser = await Client.delete(`${BASE_URL}auth/${user.id}`)
+    navigate('/')
     console.log(deleteUser)
   }
   let authenticatedOptions

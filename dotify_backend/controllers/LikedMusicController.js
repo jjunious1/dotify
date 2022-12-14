@@ -42,6 +42,8 @@ const removeSong = async (req, res) => {
   }
 }
 
+//used for backend
+
 const GetAllSongs = async (req, res) => {
   try {
     const allSongs = await LikedMusic.findAll()

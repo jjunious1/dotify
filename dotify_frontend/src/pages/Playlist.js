@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import React from 'react'
 import Client from '../services/api'
 import { BASE_URL } from '../services/api'
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
+//referenced this for an audio player https://github.com/lhz516/react-h5-audio-player
 
 const Playlist = ({ authenticated, user }) => {
   const [myPlayList, setMyPlaylist] = useState([])
   const [playlist, setPlayList] = useState([])
-  const [currentTrack, setTrackIndex] = React.useState(0)
+  const [currentTrack, setTrackIndex] = useState(0)
   const [remove, setRemoveSong] = useState({
     musicId: 0,
     userId: parseInt(user.id)
@@ -20,15 +20,15 @@ const Playlist = ({ authenticated, user }) => {
     const getMySongs = async () => {
       const response = await Client.get(`${BASE_URL}userpage/${id}`)
       setMyPlaylist(response.data[0].songs)
-      myPlayList?.map((song) => {
-        return playlist.push(song.music_file)
+      response.data[0].songs.map((song) => {
+        playlist.push(song.music_file)
       })
     }
     getMySongs()
   }, [remove, id, playlist])
 
-  const handleChange = (e) => {
-    setRemoveSong({ ...remove, ['musicId']: e.target.value })
+  const selectSong = (event) => {
+    setRemoveSong({ ...remove, [event.target.id]: event.currentTarget.value })
   }
 
   const removeLike = async (e) => {
@@ -50,14 +50,6 @@ const Playlist = ({ authenticated, user }) => {
     )
   }
 
-  // const runSongs = () => {
-  //   if (playlist !== null) {
-  //     return playlist
-  //   } else {
-  //     return playlist[currentTrack].src
-  //   }
-  // }
-
   return user && authenticated ? (
     <div>
       <ul>
@@ -68,29 +60,21 @@ const Playlist = ({ authenticated, user }) => {
               <h3>{songs.artists_name}</h3>
               <h4>{songs.genre}</h4>
               <form onSubmit={removeLike}>
-                <button value={parseInt(songs.id)} onClick={handleChange}>
-                  Remove
-                </button>
+                <button value={parseInt(songs.id)}>Remove</button>
               </form>
             </li>
           </div>
         ))}
       </ul>
-      {playlist ? (
-        <div className="container" id="footer">
-          <AudioPlayer
-            className="audioplayer"
-            volume="0.5"
-            onPlay={(e) => console.log('onPlay')}
-            src={playlist[currentTrack]}
-            showSkipControls
-            onClickNext={handleClickNext}
-            onEnded={handleEnd}
-          />
-        </div>
-      ) : (
-        <div></div>
-      )}
+      <div className="container" id="footer">
+        <AudioPlayer
+          volume="0.5"
+          src={playlist[currentTrack]}
+          showSkipControls
+          onClickNext={handleClickNext}
+          onEnded={handleEnd}
+        />
+      </div>
     </div>
   ) : (
     <div>
@@ -100,5 +84,3 @@ const Playlist = ({ authenticated, user }) => {
 }
 
 export default Playlist
-
-//referenced this for an audio player https://github.com/lhz516/react-h5-audio-player
