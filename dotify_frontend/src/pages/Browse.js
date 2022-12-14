@@ -13,13 +13,12 @@ const Browse = ({ authenticated, user }) => {
   const [playlist, setPlayList] = useState('')
   const [likeSong, setLikedSong] = useState({
     musicId: 0,
-    userId: parseInt(id)
+    userId: parseInt(user.id)
   })
 
   useEffect(() => {
     const getSongs = async () => {
       const response = await Client.get(`${BASE_URL}music`)
-      console.log(response)
       setSongs(response.data)
     }
     getSongs()
@@ -30,6 +29,7 @@ const Browse = ({ authenticated, user }) => {
   }
 
   const addLike = async (e) => {
+    e.preventDefault()
     const add = await Client.post(`${BASE_URL}userpage`, likeSong)
     console.log(add)
   }
@@ -47,16 +47,22 @@ const Browse = ({ authenticated, user }) => {
             <div className="songs">
               <li key={song.id}>
                 <img src={song.img} alt="image" />
-                <button value={song.music_file} onClick={playSong}>
-                  Play
-                </button>
                 <h3>{song.artists_name}</h3>
                 <h4>{song.genre}</h4>
-                <form onSubmit={addLike}>
-                  <button type="submit" value={song.id} onClick={addLikedSong}>
-                    Like
+                <div className="buttons">
+                  <button value={song.music_file} onClick={playSong}>
+                    Play
                   </button>
-                </form>
+                  <form onSubmit={addLike}>
+                    <button
+                      type="submit"
+                      value={song.id}
+                      onClick={addLikedSong}
+                    >
+                      Like
+                    </button>
+                  </form>
+                </div>
               </li>
             </div>
           ))}
@@ -67,8 +73,6 @@ const Browse = ({ authenticated, user }) => {
             autoPlay={false}
             src={playlist}
             showSkipControls
-            // onClickNext={handleClickNext}
-            // onEnded={handleEnd}
           />
         </div>
       </div>

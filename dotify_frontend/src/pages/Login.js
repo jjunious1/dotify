@@ -22,32 +22,26 @@ const Login = (props) => {
   }
 
   return (
-    <div>
-      <h1>Hello</h1>
-      <p>
-        Sign in to your Dotify account or{' '}
-        <Link to="/Register">create an account</Link>
-      </p>
-      <div className="sign">
+    <div className="signIn-form">
+      <h1 className="sign">Sign In</h1>
+      <div className="sign-input-wrapper">
+        <label htmlFor="dotifyId">DotifyId</label>
         <form className="col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <input
-              className="dotifyId"
-              onChange={handleChange}
-              name="dotifyId"
-              type="dotifyId"
-              placeholder="dotifyId"
-              value={formValues.dotifyId}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
+          <input
+            className="dotifyId"
+            onChange={handleChange}
+            name="dotifyId"
+            type="dotifyId"
+            value={formValues.dotifyId}
+            required
+          />
+          <div className="sign-input-wrapper">
+            <label htmlFor="Password">Password</label>
             <input
               className="password"
               onChange={handleChange}
               type="password"
               name="password"
-              placeholder="Password"
               value={formValues.password}
               required
             />
@@ -60,10 +54,11 @@ const Login = (props) => {
               Sign In
             </button>
           </div>
-          <a className="input-wrapper" href="/update">
-            Reset Password
-          </a>
         </form>
+        <p>
+          Not a member?{'  '}
+          <Link to="/Register">Sign up now</Link>
+        </p>
       </div>
     </div>
   )
